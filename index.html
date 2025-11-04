@@ -2,12 +2,12 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Juanito Laguna AR</title>
+    <title>Prueba AR - Lápiz y Sol</title>
 
     <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 
-    <!-- AR.js (versión actual mantenida) -->
+    <!-- AR.js -->
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
 
     <style>
@@ -24,9 +24,9 @@
       arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
     >
       <!-- Marcador 1: Lápiz -->
-      <a-marker type="pattern" url="/lapiz.patt">
+      <a-marker type="pattern" url="lapiz.patt">
         <a-entity
-          gltf-model="url(/lapiz.glb)"
+          gltf-model="url(lapiz.glb)"
           position="0 0 0"
           scale="0.5 0.5 0.5"
           rotation="0 0 0"
@@ -35,17 +35,19 @@
       </a-marker>
 
       <!-- Marcador 2: Sol -->
-      <a-marker type="pattern" url="/sol.patt">
+      <a-marker type="pattern" url="sol.patt">
         <a-entity
-          gltf-model="url(/sol.glb)"
+          gltf-model="url(sol.glb)"
           position="0 0 0"
           scale="0.5 0.5 0.5"
           rotation="0 0 0"
-          animation="property: rotation; to: 0 -360 0; loop: true; dur: 8000"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 8000"
         ></a-entity>
       </a-marker>
 
-      <!-- Cámara -->
+      <!-- Luz ambiental y cámara -->
+      <a-entity light="type: ambient; intensity: 1"></a-entity>
+      <a-entity light="type: directional; position: 1 1 1; intensity: 0.8"></a-entity>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
