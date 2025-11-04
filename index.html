@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8">
-    <title>Prueba AR - Lápiz y Sol</title>
+    <meta charset="utf-8" />
+    <title>Juanito Laguna AR</title>
 
     <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 
-    <!-- AR.js -->
+    <!-- AR.js (versión actual mantenida) -->
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
   </head>
 
-  <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs>
+  <body>
+    <a-scene
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+    >
       <!-- Marcador 1: Lápiz -->
-      <a-marker type="pattern" url="lapiz.patt">
-        <a-entity 
-          gltf-model="url(lapiz.glb)" 
+      <a-marker type="pattern" url="/lapiz.patt">
+        <a-entity
+          gltf-model="url(/lapiz.glb)"
+          position="0 0 0"
           scale="0.5 0.5 0.5"
-          animation="property: rotation; to:0 360 0; loop:true; dur:8000">
-        </a-entity>
+          rotation="0 0 0"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 8000"
+        ></a-entity>
       </a-marker>
 
       <!-- Marcador 2: Sol -->
-      <a-marker type="pattern" url="sol.patt">
-        <a-entity 
-          gltf-model="url(sol.glb)" 
+      <a-marker type="pattern" url="/sol.patt">
+        <a-entity
+          gltf-model="url(/sol.glb)"
+          position="0 0 0"
           scale="0.5 0.5 0.5"
-          animation="property: rotation; to:0 360 0; loop:true; dur:8000">
-        </a-entity>
+          rotation="0 0 0"
+          animation="property: rotation; to: 0 -360 0; loop: true; dur: 8000"
+        ></a-entity>
       </a-marker>
 
       <!-- Cámara -->
