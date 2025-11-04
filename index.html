@@ -17,10 +17,20 @@
       <a-entity light="type: ambient; intensity: 1"></a-entity>
       <a-entity light="type: directional; intensity: 0.6" position="0 1 1"></a-entity>
 
-      <!-- Marcador Hiro -->
+      <!-- Marcadores -->
       <a-marker type="pattern" url="sol.patt">
         <a-entity
           gltf-model="sol.glb"
+          position="0 0.3 0"
+          rotation="0 180 0"
+          scale="10 10 10"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear"
+        ></a-entity>
+      </a-marker>
+
+      <a-marker type="pattern" url="lapiz.patt">
+        <a-entity
+          gltf-model="lapiz.glb"
           position="0 0.3 0"
           rotation="0 180 0"
           scale="10 10 10"
