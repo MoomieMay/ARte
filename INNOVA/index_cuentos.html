@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Prueba AR - Sol con marcador</title>
+
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+    <!-- AR.js (versión estable actual) -->
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+      <!-- Luz ambiental y direccional -->
+      <a-entity light="type: ambient; intensity: 1"></a-entity>
+      <a-entity light="type: directional; intensity: 0.6" position="0 1 1"></a-entity>
+
+      <!-- Marcadores -->
+      <a-marker type="pattern" url="sol.patt">
+        <a-entity
+          gltf-model="sol.glb"
+          position="0 0.3 0"
+          rotation="0 180 0"
+          scale="30 30 30"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear"
+        ></a-entity>
+      </a-marker>
+
+      <a-marker type="pattern" url="lapiz.patt">
+        <a-entity
+          gltf-model="lapiz.glb"
+          position="0 0 0"
+          rotation="90 45 0"
+          scale="45 45 45"
+        ></a-entity>
+      </a-marker>
+
+      <a-marker type="pattern" url="tortuga.patt">
+        <a-entity
+          gltf-model="tortuga.glb"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="20 20 20"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear" 
+        ></a-entity>
+      </a-marker>
+
+      <a-marker type="pattern" url="corona.patt">
+        <a-entity
+          gltf-model="corona.glb"
+          position="0 0 0"
+          rotation="-85 0 0"
+          scale="45 45 45"
+        ></a-entity>
+      </a-marker>
+
+      <a-marker type="pattern" url="oso.patt">
+        <a-entity
+          gltf-model="oso.glb"
+          position="0 0 0"
+          rotation="-90 0 0"
+          scale="25 25 25"
+        ></a-entity>
+      </a-marker>
+
+      <a-marker type="pattern" url="abeja.patt">
+        <a-entity
+          gltf-model="abeja.glb"
+          position="0 0 0"
+          rotation="90 0 0"
+          scale="20 20 20"
+        ></a-entity>
+      </a-marker>
+
+      <!-- Cámara -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
