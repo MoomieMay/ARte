@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Juanito Laguna AR</title>
 
-    <!-- A-Frame -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<head>
+  <meta charset="utf-8" />
+  <title>Juanito Laguna AR</title>
 
-    <!-- AR.js (versión estable actual) -->
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
-  </head>
+  <!-- A-Frame -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 
-  <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs>
-      <!-- Luz ambiental y direccional -->
-      <a-entity light="type: ambient; intensity: 1"></a-entity>
-      <a-entity light="type: directional; intensity: 0.6" position="0 1 1"></a-entity>
+  <!-- AR.js (versión estable actual) -->
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
+</head>
 
-      <!-- Marcadores -->
-      <a-marker type="pattern" url="barrilete.patt">
-        <a-entity
-          gltf-model="barrilete.glb"
-          position="20 -30 0"
-          rotation="0 0 0"
-          scale="10 10 10"
-          animation="property: rotation; to: 20 0 0; dir: alternate; loop: true; dur: 2000; easing: easeInOutSine"
-        ></a-entity>
+<script>
+  document.querySelector('a-marker').addEventListener('markerFound', () => {
+    const sound = document.querySelector('a-sound');
+    sound.components.sound.playSound();
+  });
 
-        <a-sound src="url('barrilete.mp3')" autoplay="true"></a-sound>
-      </a-marker>
+  document.querySelector('a-marker').addEventListener('markerLost', () => {
+    const sound = document.querySelector('a-sound');
+    sound.components.sound.stopSound();
+  });
+</script>
 
-      <!-- Cámara -->
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+
+<body style="margin: 0; overflow: hidden;">
+  <a-scene embedded arjs>
+    <!-- Luz ambiental y direccional -->
+    <a-entity light="type: ambient; intensity: 1"></a-entity>
+    <a-entity light="type: directional; intensity: 0.6" position="0 1 1"></a-entity>
+
+    <!-- Marcadores -->
+    <a-marker type="pattern" url="barrilete.patt">
+
+      <!-- CONTENEDOR (pivot) PARA AJUSTAR POSICIÓN Y ESCALA -->
+      <a-entity id="pivot" position="0 0.5 0" rotation="0 0 0" scale="30 30 30"> <!-- tu escala actual -->
+
+        <!-- MODELO, SIN ANIMACIÓN -->
+        <a-entity gltf-model="barrilete.glb" position="0 0 0" rotation="0 0 0">
+        </a-entity>
+
+      </a-entity>
+
+      <!-- AUDIO QUE SE ACTIVA CUANDO EL MARCADOR ES DETECTADO -->
+      <a-sound src="url(musica.mp3)" autoplay="false" on="markerFound: sound-play; markerLost: sound-stop">
+      </a-sound>
+
+    </a-marker>
+
+
+    <!-- Cámara -->
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+
 </html>
