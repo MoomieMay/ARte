@@ -16,14 +16,18 @@
   Activar sonido
 </button>
 
-<a-sound id="music" src="musica.mp3" autoplay="false"></a-sound>
+<a-sound id="music" src="barrilete.mp3" autoplay="false"></a-sound>
 
 <script>
-  document.getElementById("playAudio").addEventListener("click", function () {
-    document.getElementById("music").components.sound.playSound();
-    this.style.display = "none"; // ocultar botón
+  const btn = document.getElementById("playAudio");
+  const music = document.getElementById("music");
+
+  btn.addEventListener("click", () => {
+    music.components.sound.playSound();
+    btn.style.display = "none";
   });
 </script>
+
 
 
 <body style="margin: 0; overflow: hidden;">
@@ -34,9 +38,7 @@
 
     <!-- Marcadores -->
     <a-marker type="pattern" url="barrilete.patt">
-      <a-entity gltf-model="barrilete.glb" position="20 -30 0" rotation="0 0 0" scale="10 10 10"></a-entity>
-
-      <a-sound src="url('barrilete.mp3')" autoplay="true"></a-sound>
+      <a-entity gltf-model="barrilete.glb" position="0.3 -0.2 0" rotation="0 180 0" scale="10 10 10"></a-entity>
     </a-marker>
 
     <!-- Cámara -->
