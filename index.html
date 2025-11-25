@@ -35,7 +35,7 @@
     <a-marker type="pattern" url="barrilete.patt">
 
       <!-- CONTENEDOR (pivot) PARA AJUSTAR POSICIÓN Y ESCALA -->
-      <a-entity id="pivot" position="0 0.5 0" rotation="0 0 0" scale="30 30 30"> <!-- tu escala actual -->
+      <a-entity id="pivot" position="0 0.5 0" rotation="0 0 0" scale="15 15 15">
 
         <!-- MODELO, SIN ANIMACIÓN -->
         <a-entity gltf-model="barrilete.glb" position="0 0 0" rotation="0 0 0">
@@ -44,7 +44,7 @@
       </a-entity>
 
       <!-- AUDIO QUE SE ACTIVA CUANDO EL MARCADOR ES DETECTADO -->
-      <a-sound src="url(musica.mp3)" autoplay="false" on="markerFound: sound-play; markerLost: sound-stop">
+      <a-sound src="url(barrilete.mp3)" autoplay="false" on="markerFound: sound-play; markerLost: sound-stop">
       </a-sound>
 
     </a-marker>
