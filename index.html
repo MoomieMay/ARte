@@ -12,15 +12,16 @@
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
 </head>
 
-<script>
-  document.querySelector('a-marker').addEventListener('markerFound', () => {
-    const sound = document.querySelector('a-sound');
-    sound.components.sound.playSound();
-  });
+<button id="playAudio" style="position:fixed; top:10px; left:10px; z-index:999;">
+  Activar sonido
+</button>
 
-  document.querySelector('a-marker').addEventListener('markerLost', () => {
-    const sound = document.querySelector('a-sound');
-    sound.components.sound.stopSound();
+<a-sound id="music" src="musica.mp3" autoplay="false"></a-sound>
+
+<script>
+  document.getElementById("playAudio").addEventListener("click", function () {
+    document.getElementById("music").components.sound.playSound();
+    this.style.display = "none"; // ocultar botón
   });
 </script>
 
@@ -33,22 +34,10 @@
 
     <!-- Marcadores -->
     <a-marker type="pattern" url="barrilete.patt">
+      <a-entity gltf-model="barrilete.glb" position="20 -30 0" rotation="0 0 0" scale="10 10 10"></a-entity>
 
-      <!-- CONTENEDOR (pivot) PARA AJUSTAR POSICIÓN Y ESCALA -->
-      <a-entity id="pivot" position="0 0.5 0" rotation="0 0 0" scale="15 15 15">
-
-        <!-- MODELO, SIN ANIMACIÓN -->
-        <a-entity gltf-model="barrilete.glb" position="0 0 0" rotation="0 0 0">
-        </a-entity>
-
-      </a-entity>
-
-      <!-- AUDIO QUE SE ACTIVA CUANDO EL MARCADOR ES DETECTADO -->
-      <a-sound src="url(barrilete.mp3)" autoplay="false" on="markerFound: sound-play; markerLost: sound-stop">
-      </a-sound>
-
+      <a-sound src="url('barrilete.mp3')" autoplay="true"></a-sound>
     </a-marker>
-
 
     <!-- Cámara -->
     <a-entity camera></a-entity>
