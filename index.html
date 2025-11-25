@@ -37,8 +37,24 @@
     <a-entity light="type: directional; intensity: 0.6" position="0 1 1"></a-entity>
 
     <!-- Marcadores -->
+    <!-- Barrilete Maxi -->
     <a-marker type="pattern" url="barrilete.patt">
-      <a-entity gltf-model="barrilete.glb" position="0 0 0" rotation="0 180 0" scale="1 1 1"></a-entity>
+      <a-entity gltf-model="barrilete.glb" position="0 0 0" rotation="0 180 0" scale="1.5 1.5 1.5"></a-entity>
+    </a-marker>
+
+    <a-marker type="pattern" url="caja.patt">
+      <!-- Caja Santi -->
+      <a-entity gltf-model="caja.glb" position="0 0 0" rotation="0 180 0" scale="10 10 10">
+      </a-entity>
+
+      <!-- Elementos Santi -->
+      <a-entity gltf-model="elementos.glb" position="30 0 0" rotation="0 0 0" scale="5 5 5">
+      </a-entity>
+    </a-marker>
+
+    <!-- Barrilete Valen -->
+    <a-marker type="pattern" url="barrileteVal.patt">
+      <a-entity gltf-model="barrileteVal.glb" position="0 0 0" rotation="0 180 0" scale="1.5 1.5 1.5"></a-entity>
     </a-marker>
 
     <!-- Cámara -->
