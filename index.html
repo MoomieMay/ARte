@@ -12,22 +12,6 @@
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.js"></script>
 </head>
 
-<button id="playAudio" style="position:fixed; top:10px; left:10px; z-index:999;">
-  Activar sonido
-</button>
-
-<script>
-  const btn = document.getElementById("playAudio");
-  const music = document.getElementById("music");
-
-  btn.addEventListener("click", () => {
-    music.components.sound.playSound();
-    btn.style.display = "none";
-  });
-</script>
-
-
-
 <body style="margin: 0; overflow: hidden;">
   <a-scene embedded arjs>
     <!-- Luz ambiental y direccional -->
